@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    </head>
+    <body class="bg-info">
+        <div class="container mt-4 pt-4">
+            <div class="card">
+                <div class="card-body mt-4">
+                    <h1 class="text-warning text-center mb-4">
+                        Subscriber<span class="text-success text-sm">App</span>
+                      </h1>
+                          
+                            <form action="<%=(typeof subscriberData!='undefined')? '/subscriber/edit/'+subscriberData.id:'subscriber/create'%>" method="POST">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="firstName">Name</label>
+                                        <input type="text" class="form-control " placeholder="Enter subscriber`s name" name="name" value="<%=(typeof subscriberData!='undefined')? subscriberData.name:''%>">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="firstName">Number</label>
+                                        <input type="text" class="form-control " placeholder="Enter subscriber's number " name="number" value="<%=(typeof subscriberData!='undefined')? subscriberData.number:''%>">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="firstName">ID NO</label>
+                                        <input type="number" class="form-control " placeholder="Enter subscriber`s ID number" name="ID" value="<%=(typeof subscriberData!='undefined')? subscriberData.ID:''%>">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="firstName">`</label>
+                                      <input
+                                        type="submit"
+                                        class="btn btn-success form-control btn-form"
+                                        value="Submit"
+                                      />
+                                    
+                                    </div>
+                                  </div>
+                            </form>  
+                        </div> 
+                    </div>  
+                    <div class="card-footer bg-warning">
+                                <p class="text-center"><a href="/subscriber/list" >Click to see Subcribers table</a></p>
+                    </div>
+                </div>
+                
+                
+            </div>
+    </body>
+</html>
