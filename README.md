@@ -1,7 +1,5 @@
 # subscriber_app
-
-#Subscriber Manager 
-
+ 
 Building a simple CRUD Application with EJS NodeJS ExpressJS & MONGO
 
 ## Installation
