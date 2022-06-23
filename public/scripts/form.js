@@ -1,10 +1,11 @@
+
 $(document).ready(function(){
     
     var current_fs, next_fs, previous_fs; //fieldsets
     var opacity;
-    
-    $(".next").click(function(){
 
+    $(".next").click(function(){
+        // validating the form 
         var form = $("#msform");
 		form.validate({
 			rules: {
@@ -128,4 +129,48 @@ $(document).ready(function(){
         return false;
     })
         
-    });
+});
+function getInputValue(){
+    // Selecting the input element and get its value 
+    var changeDetails = new Array();
+            $("input[name='changeInfo']:checked").each(function() {
+                changeDetails.push($(this).val());
+            });
+
+        var dataTest = changeDetails.includes("mpesaOwnership");
+        console.log("testCheck", dataTest);
+
+        if(changeDetails.includes("mpesaOwnership")) {
+            // $('#modalInfo').modal();
+        }
+
+    let data = {
+        oldOwnerFName: document.getElementById("oldOwnerFName").value,
+        oldOwnerLName: document.getElementById("oldOwnerLName").value,
+        oldOwnerId: document.getElementById("oldOwnerId").value,
+        oldOwnerPhoneNo: document.getElementById("oldOwnerPhoneNo").value,
+        phoneNoChange:document.getElementById("phoneNoChange").value,
+        newOwnerFName: document.getElementById("newOwnerFName").value,
+        newOwnerLName: document.getElementById("newOwnerLName").value,
+        newOwnerId: document.getElementById("newOwnerId").value,
+      };
+
+    // Store the values in local Storage 
+    localStorage.setItem("data", JSON.stringify(data));
+
+      // Retrieve the data from local storage
+    let storageDataString = localStorage.getItem("data");
+
+   /*  let savedData = JSON.parse(storageDataString);
+    console.log("data object", savedData);
+    console.log("data names", data.oldOwnerFName); */
+
+
+    document.getElementById("CONames").innerHTML = data.oldOwnerFName;
+    document.getElementById("COId").innerHTML = data.oldOwnerId;
+    document.getElementById("changeDetails").innerHTML = changeDetails;
+    document.getElementById("changeNumber").innerHTML = data.phoneNoChange;
+    document.getElementById("NONames").innerHTML = data.newOwnerFName;
+    document.getElementById("NOId").innerHTML = data.newOwnerId;
+
+}
