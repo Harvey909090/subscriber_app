@@ -82,38 +82,39 @@
                                 <fieldset class="tab">
                                     <div class="form-card">
                                         <h2 class="fs-title">Current registered owner of line</h2>
-                                        <input type="text" name="firstName" placeholder="First Name" required />
-                                        <input type="text" name="lastName" placeholder=" Last Name" required />
+                                        <input type="text" name="firstName" placeholder="First Name" id="oldOwnerFName" required />
+                                        <input type="text" name="lastName" placeholder=" Last Name" id="oldOwnerLName" required />
                                         <input type="number" name="idNo"
-                                            placeholder="National ID/ Valid passport/ Alien ID/ Military No" required />
-                                        <input type="tel" name="phoneNo" placeholder="Mobile Number" required />
+                                            placeholder="National ID/ Valid passport/ Alien ID/ Military No" id="oldOwnerId" required />
+                                        <input type="tel" name="phoneNo" placeholder="Mobile Number" id="oldOwnerPhoneNo" required />
+                                        <input type="tel" name="changePhoneNo" placeholder="Mobile Number to be Changed" id="phoneNoChange" required />
                                     </div>
-                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                    <input type="button" name="next" onclick="getInputValue();" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset class="tab">
                                     <div class="form-card">
                                         <h2 class="fs-title">New owner of line</h2>
-                                        <input type="text" name="firstName" placeholder="First Name" required />
-                                        <input type="text" name="lastName" placeholder=" Last Name" required />
+                                        <input type="text" name="firstName" placeholder="First Name" id="newOwnerFName" required />
+                                        <input type="text" name="lastName" placeholder=" Last Name" id="newOwnerLName" required />
                                         <input type="number" name="idNo"
-                                            placeholder="National ID/ Valid passport/ Alien ID/ Military No" required />
+                                            placeholder="National ID/ Valid passport/ Alien ID/ Military No" id="newOwnerId" required />
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous"
                                         value="Previous" />
-                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                    <input type="button" name="next" onclick="getInputValue();" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset class="tab">
                                     <div class="form-card">
                                         <h2 class="fs-title">Change Information</h2>
                                         <div class="form-check" >
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault" name="changeInfo" checked>
+                                            <input class="form-check-input" type="checkbox" value="mpesaOwnership"
+                                                id="flexCheckDefault" name="changeInfo">
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 M-PESA ownership
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
+                                            <input class="form-check-input" type="checkbox" value="mobileNoOwnership"
                                                 id="flexCheckChecked" name="changeInfo">
                                             <label class="form-check-label" for="flexCheckChecked">
                                                 Mobile No. ownership
@@ -122,15 +123,15 @@
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous"
                                         value="Previous" />
-                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                    <input type="button" name="next" onclick="getInputValue();" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset class="tab">
                                     <div class="form-card">
                                         <h2 class="fs-title">Customer Declaration</h2>
-                                        <p>I {{Co Names}} of National ID/ Valid passport/ Alien ID/ Military No {{CO
-                                            Id}} hereby authorize Safaricom to change {{change infrmatiod details}} of
-                                            {{phone no}} to {{NO Names}} of National ID/ Valid passport/ Alien ID/
-                                            Military No {{NO Id}}
+                                        <p>I <strong id="CONames"></strong> of National ID/ Valid passport/ Alien ID/ Military No <strong id="COId"></strong>
+                                            hereby authorize Safaricom to change <strong id="changeDetails"></strong> of
+                                            <strong id="changeNumber"></strong> to <strong id="NONames"></strong> of National ID/ Valid passport/ Alien ID/
+                                            Military No <strong id="NOId"></strong>
                                         </p>
                                         <label class="form-label" for="customFile">Attach copies of both id</label>
                                         <input type="file" id="files" name="files" multiple>
