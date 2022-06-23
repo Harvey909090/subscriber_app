@@ -4,11 +4,8 @@ $(document).ready(function(){
     var current_fs, next_fs, previous_fs; //fieldsets
     var opacity;
 
-
-
-
     $(".next").click(function(){
-
+        // validating the form 
         var form = $("#msform");
 		form.validate({
 			rules: {
@@ -142,6 +139,10 @@ function getInputValue(){
 
         var dataTest = changeDetails.includes("mpesaOwnership");
         console.log("testCheck", dataTest);
+
+        if(changeDetails.includes("mpesaOwnership")) {
+            // $('#modalInfo').modal();
+        }
 
     let data = {
         oldOwnerFName: document.getElementById("oldOwnerFName").value,
